@@ -23,7 +23,9 @@ username = os.getenv("NEO4J_USERNAME")
 password = os.getenv("NEO4J_PASSWORD")
 ollama_base_url = os.getenv("OLLAMA_BASE_URL")
 embedding_model_name = os.getenv("EMBEDDING_MODEL")
-llm_name = os.getenv("LLM")
+
+
+llm_name = "medllama2"#os.getenv("LLM")
 # Remapping for Langchain Neo4j integration
 os.environ["NEO4J_URL"] = url
 
@@ -49,7 +51,11 @@ llm = load_llm(llm_name, logger=logger, config={"ollama_base_url": ollama_base_u
 
 
 def main():
-    st.header("📄Chat with your pdf file")
+
+    rr = f"llllllllllllllllll llm_name: {llm_name} llm: {llm}  url: {url}  username: {username}  password: {password}  ollama_base_url: {ollama_base_url}  embedding_model_name: {embedding_model_name}  "
+
+    # st.header("📄Chat with your pdf file")
+    st.header(rr)
 
     # upload a your pdf file
     pdf = st.file_uploader("Upload your PDF", type="pdf")
@@ -65,6 +71,7 @@ def main():
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=1000, chunk_overlap=200, length_function=len
         )
+        print("***********************************************")
 
         chunks = text_splitter.split_text(text=text)
 
