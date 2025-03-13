@@ -1,0 +1,8 @@
+
+
+docker compose --profile linux-gpu up
+
+To enter watch mode (auto rebuild on file changes). First start everything, then in new terminal:
+
+docker compose watch
+
