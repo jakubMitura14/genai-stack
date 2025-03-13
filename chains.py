@@ -101,9 +101,9 @@ def load_llm(llm_name: str, logger=BaseLogger(), config={}):
 def configure_llm_only_chain(llm):
     # LLM only response
     template = """
-    You are a helpful assistant that helps a support agent with answering programming questions.
-    If you don't know the answer, just say that you don't know, you must not make up an answer.
-    """
+   Als Experte für Radiologie und Nuklearmedizin analysieren Sie den Text und korrigieren gegebenenfalls Grammatik und Stil.
+
+Kommentieren Sie anschließend, falls Sie widersprüchliche Informationen im Text gefunden haben. Achten Sie darauf, dass der Text die für einen radiologischen Bericht typische Struktur aufweist und professionell verfasst ist. Richten Sie sich nicht an eine bestimmte Person, sondern formulieren Sie ihn präzise und unpersönlich.    """
     system_message_prompt = SystemMessagePromptTemplate.from_template(template)
     human_template = "{question}"
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)

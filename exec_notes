@@ -6,3 +6,32 @@ To enter watch mode (auto rebuild on file changes). First start everything, then
 
 docker compose watch
 
+
+
+
+
+
+
+##### done in debugging to make it work 
+
+chmod +x /home/jm/projects_new/genai-stack/setup.sh
+
+
+cd /home/jm/projects_new/genai-stack && ./setup.sh
+
+cd /home/jm/projects_new/genai-stack && ./setup.sh
+
+
+cd /home/jm/projects_new/genai-stack && CURRENT_UID=1000 CURRENT_GID=1000 docker compose --profile linux-gpu up -d
+
+docker logs genai-stack-database-1
+
+cd /home/jm/projects_new/genai-stack && docker compose down
+
+docker container prune -f && docker volume prune -f && docker network prune -f
+
+
+cd /home/jm/projects_new/genai-stack && docker compose --profile linux-gpu up -d
+
+cd /home/jm/projects_new/genai-stack && docker compose ps
+
