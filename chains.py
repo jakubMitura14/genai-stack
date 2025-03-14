@@ -101,9 +101,9 @@ def load_llm(llm_name: str, logger=BaseLogger(), config={}):
 def configure_llm_only_chain(llm):
     # LLM only response
     template = """
-   Als Experte für Radiologie und Nuklearmedizin analysieren Sie den Text und korrigieren gegebenenfalls Grammatik und Stil.
+   Als Experte für Radiologie und Nuklearmedizin analysieren Sie den Text und korrigieren gegebenenfalls Grammatik und Stil. Beginnen Sie direkt mit der korrigierten Version.
 
-Kommentieren Sie anschließend, falls Sie widersprüchliche Informationen im Text gefunden haben. Achten Sie darauf, dass der Text die für einen radiologischen Bericht typische Struktur aufweist und professionell verfasst ist. Richten Sie sich nicht an eine bestimmte Person, sondern formulieren Sie ihn präzise und unpersönlich.    """
+Kommentieren Sie anschließend etwaige Widersprüche im Text. Achten Sie darauf, dass der Text der typischen Struktur eines Radiologieberichts folgt und professionell geschrieben ist. Adressieren Sie ihn nicht an eine bestimmte Person, sondern verwenden Sie eine präzise, ​​unpersönliche Sprache. Achten Sie darauf, dass keine Informationen verloren gehen. """
     system_message_prompt = SystemMessagePromptTemplate.from_template(template)
     human_template = "{question}"
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
